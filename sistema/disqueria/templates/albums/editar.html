@@ -1,0 +1,21 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Editor de Albums {% endblock%}
+
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        EDITAR UN ALBUM
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Album</h4>
+        {% include 'albums/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>  
+
+{% endblock%}
