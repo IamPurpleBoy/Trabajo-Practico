@@ -1,0 +1,69 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Lista de Albums por Nombre{% endblock%}
+
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a name="" id="" class="btn btn-info" href="{% url 'crearAlbum' %}" role="button">Agregar Album</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">LISTA DE ALBUMS POR NOMBRE</h4>
+        <div class="table-responsive">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        <th>Carátula</th>
+                        <th>Nombre</th>
+                        <th><a name="" id="" class="btn btn-outline-secondary btn-sm" href="{% url 'crearInterprete' %}" role="button">+</a> <a href="{% url 'interprete' %}">Intérprete</a></th>
+                        <th>Lanzamiento</th>
+                        <th><a name="" id="" class="btn btn-outline-secondary btn-sm" href="{% url 'crearDiscografica' %}" role="button">+</a><a href="{% url 'discografica' %}">Discográfica</a></th>
+                        <th><a name="" id="" class="btn btn-outline-secondary btn-sm" href="{% url 'crearFormato' %}" role="button">+</a><a href="{% url 'formato' %}">Formato </a></th>
+                        <th><a name="" id="" class="btn btn-outline-secondary btn-sm" href="{% url 'crearGenero' %}" role="button">+</a><a href="{% url 'genero' %}">Género</a></th>
+                        <th>Temas</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Acciones</th>
+                        
+                        
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for album in buscarAlbums %}
+                    <tr>
+                        <td>
+                            <img src="{{album.caratula.url}}" height="100"> 
+                        </td>
+                        <td>{{album.nombre}}</td>
+                        <td>{{album.id_interprete}}</td>                    
+                        <td>{{album.fec_lanzamiento}}</td>
+                        <td>{{album.id_discografica}}</td>
+                        <td>{{album.id_formato}}</td>
+                        <td>{{album.id_genero}}</td>
+                        <td>{{album.cant_temas}}</td>                    
+                        <td>${{album.precio}}</td>
+                        <td>{{album.cantidad}}</td>
+                        <td>
+                            <div class="d-grid gap-2 mx-auto">
+                            <a name="" id="" class="btn btn-outline-info btn-sm" href="{% url 'editarAlbum' album.id_album %}"  role="button">Editar</a>
+                            <a name="" id="" class="btn btn-outline-danger btn-sm" href="{% url 'borrarAlbum' album.id_album %}" role="button">Borrar</a>
+                            </div>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div> 
+
+{% endblock%}

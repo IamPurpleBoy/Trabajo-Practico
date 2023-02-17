@@ -1,0 +1,20 @@
+
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Editor de Género {% endblock%}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        EDITAR UN GENERO
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Género</h4>
+        {% include 'genero/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>  
+
+{% endblock%}

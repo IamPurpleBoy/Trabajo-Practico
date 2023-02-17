@@ -1,0 +1,20 @@
+
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Editor de Formato {% endblock%}
+
+{% block contenido %}
+<div class="card">
+    <div class="card-header">
+        EDITAR UN FORMATO
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Formato</h4>
+        {% include 'formato/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div>  
+
+{% endblock%}

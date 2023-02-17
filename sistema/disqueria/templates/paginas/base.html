@@ -16,24 +16,40 @@
 
 <body>
   <header>
-    <nav class="navbar navbar-expand navbar-light bg-light">
-        <div class="nav navbar-nav">
-            <a class="nav-item nav-link active" href="{% url 'inicio' %}" aria-current="page">Inicio</a>
-            <a class="nav-item nav-link active" href="{% url 'albums' %}" aria-current="page">Albums</a>
-            <a class="nav-item nav-link active" href="{% url 'nosotros' %}" aria-current="page">Nosotros</a>
+    <div class="collapse" id="navbarToggleExternalContent">
+      <div class="bg-light p-4">
+        <div class="d-grid gap-2 mx-auto">
+          <div class="container-fluid" style="text-align: end;">
+            <ul class="navbar-nav">
+              <a class="nav-item nav-link active" href="{% url 'inicio' %}" aria-current="page">Inicio</a>
+              <a class="nav-item nav-link active" href="{% url 'albums' %}" aria-current="page">Albums</a>
+              <a class="nav-item nav-link active" href="{% url 'nosotros' %}" aria-current="page">Nosotros</a>
+            </ul>
+          </div>
         </div>
+      </div>
+    </div>
+    <nav class="navbar navbar-light bg-primary">
+      <div class="container-fluid">
+        <a class="navbar-toggler" type="button" data-bs-toggle="collapse"
+          data-bs-target="#navbarToggleExternalContent" aria-controls="navbarToggleExternalContent"
+          aria-expanded="false" aria-label="Toggle navigation" style="align-items: end;">
+          <span class="navbar-toggler-icon"></span> <!--i class="fa-duotone fa-record-vinyl"></i-->
+      </a>
+        
+      </div>
     </nav>
   </header>
   <main>
     <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-12">
-                  <br>
-                    {% block contenido %} {% endblock %}
-                </div>
-            </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-12">
+          <br>
+          {% block contenido %} {% endblock %}
         </div>
+      </div>
+    </div>
   </main>
   <footer>
     <!-- place footer here -->
@@ -41,11 +57,11 @@
   <!-- Bootstrap JavaScript Libraries -->
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
     integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
-  </script>
+    </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
     integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
-  </script>
+    </script>
 </body>
 
 </html>

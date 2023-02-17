@@ -1,0 +1,21 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Crear nuevo Genero {% endblock%}
+
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        CREAR UN GENERO
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos de Genero</h4>
+        {% include 'genero/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div> 
+
+{% endblock%}

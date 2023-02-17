@@ -1,0 +1,46 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Lista de Discograficas{% endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crearDiscografica' %}" role="button">Agregar</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">LISTA DE DISCOGRAFICAS</h4>
+        <div class="table-responsive">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if discograficas %}
+                    {% for discografica in discograficas %}
+                    <tr>
+                        <td>{{discografica.nombre}}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-primary" href="{% url 'editarDiscografica' discografica.id_discografica %}"  role="button">Editar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'borrarDiscografica' discografica.id_discografica %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <p style="color: red">No hay registro de Discograficas</p>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div> 
+
+{% endblock%}

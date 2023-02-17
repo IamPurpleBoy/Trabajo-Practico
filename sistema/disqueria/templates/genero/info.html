@@ -1,0 +1,46 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Lista de Géneros {% endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <a name="" id="" class="btn btn-success" href="{% url 'crearGenero' %}" role="button">Agregar</a>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">LISTA DE GENEROS</h4>
+        <div class="table-responsive">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        
+                        <th>Nombre</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if generos %}
+                    {% for genero in generos %}
+                    <tr>
+                        <td>{{genero.nombre}}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-primary" href="{% url 'editarGenero' genero.id_genero %}"  role="button">Editar</a>
+                            <a name="" id="" class="btn btn-danger" href="{% url 'borrarGenero' genero.id_genero %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <p style="color: red">No hay registro de Géneros</p>
+                    {% endif %}
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div> 
+
+{% endblock%}

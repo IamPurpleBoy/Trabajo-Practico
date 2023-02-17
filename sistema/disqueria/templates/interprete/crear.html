@@ -1,0 +1,21 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Crear nuevo Album {% endblock%}
+
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        CREAR UN INTERPRETE
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Interprete</h4>
+        {% include 'interprete/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div> 
+
+{% endblock%}

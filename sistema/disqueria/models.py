@@ -12,7 +12,7 @@ class Interprete(models.Model):
         nombre = models.CharField(max_length=50, verbose_name='nombre')
         apellido = models.CharField(max_length=50, verbose_name='apellido')
         nacionalidad = models.CharField(max_length=50, verbose_name='nacionalidad')
-        foto = models.ImageField(upload_to='imagenes/', verbose_name='foto', null=True)
+        foto = models.ImageField(upload_to='imagenes/', default='imagenes/user.jpg', verbose_name='foto', null=True)
 
         def nombre_completo(self):
                 return "{} {}" .format(self.nombre, self.apellido)
@@ -91,7 +91,7 @@ class Album(models.Model):
         fec_lanzamiento = models.DateField(verbose_name='Lanzamiento')
         precio = models.DecimalField(max_digits=9, decimal_places=2 ,verbose_name='Precio')
         cantidad = models.IntegerField(verbose_name='Cantidad')
-        caratula = models.ImageField(upload_to='imagenes/', verbose_name='Carátula', null=True) 
+        caratula = models.ImageField(upload_to='imagenes/', default='imagenes/caratula.jpg',verbose_name='Carátula', null=True) 
 
         def __str__(self) -> str:
             fila = self.nombre 

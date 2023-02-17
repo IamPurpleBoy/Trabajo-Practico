@@ -3,14 +3,23 @@
 {% block titulo %} Inicio {% endblock%}
 
 
-{% block contenido %} 
-
-<div class="p-5 mb-4 bg-light rounded-3">
+{% block contenido %}
+<div class="container-fluid bg-info" >
+  <div class="p-5 mb-4 bg-primary rounded-3">
     <div class="container-fluid py-5">
-      <h1 class="display-5 fw-bold">Bienvenidos a Disqueria Formosa</h1>
-      <p class="col-md-8 fs-4">Descubra nuestras Ofertas de los mejores Albums</p>
-      <button class="btn btn-primary btn-lg" type="button">Ingresar</button>
+      <h1 class="display-5 fw-bold text-light">Bienvenidos a Disqueria Formosa</h1>
+      <p class="col-md-8 fs-4 text-light">Los de antes, los de ahora y los de siempre...</p> 
+      <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'buscarAlbum'  %}">  
+        <div class="row">
+          <div class="col-8"><input class="form-control mr-sm-2" type="search" placeholder="Buscar Álbum por su nombre aqui..."
+              aria-label="Buscar" name="Buscar">
+          </div>
+          <div class="col-2">
+            <button class="btn btn-outline-link my-1 my-sm-0 fw-bold text-light" type="submit">Buscar</button>
+          </div>
+        </div>
+      </form>
     </div>
-  </div> 
-
+  </div>
+</div>
 {% endblock%}
