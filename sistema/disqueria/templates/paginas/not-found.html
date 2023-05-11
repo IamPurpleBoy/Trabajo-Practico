@@ -1,0 +1,16 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Pagina no encontrada {% endblock%}
+
+
+{% block contenido %} 
+
+<div class="p-5 mb-4 bg-light rounded-3">
+    <div class="container-fluid py-5">
+      <h1 class="display-5 fw-bold">Ups! Parece que hubo un error</h1>
+      <p class="col-md-8 fs-4"> Podras regresar al principio haciendo click en el boton</p>  
+      <a name="" id="" class="btn btn-primary btn-lg" href="{% url 'inicio' %}" role="button">Regresar</a>
+    </div>
+  </div> 
+
+{% endblock%} 

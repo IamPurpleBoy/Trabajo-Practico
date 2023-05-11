@@ -1,6 +1,6 @@
 {% extends "paginas/base.html" %}
 
-{% block titulo %} Lista de Albums por Nombre{% endblock%}
+{% block titulo %} Lista de Albums por Género {% endblock%}
 
 
 {% block contenido %} 
@@ -8,12 +8,12 @@
 <div class="card">
     <div class="card-header">
         <div class="d-grid gap-2 d-md-flex justify-content-md-end">
-        <a name="" id="" class="btn btn-outline-success" href="{% url 'inicio' %}" role="button">Atras</a>
+        <a name="" id="" class="btn btn-outline-success" href="{% url 'genero' %}" role="button">Atras</a>
         <a name="" id="" class="btn btn-info" href="{% url 'crearAlbum' %}" role="button">Agregar Album</a>
         </div>
     </div>
     <div class="card-body">
-        <h4 class="card-title">LISTA DE ALBUMS POR NOMBRE</h4>
+        <h4 class="card-title">LISTA DE ALBUMS POR GÉNERO</h4>
         <div class="table-responsive">
             <table class="table table-light">
                 <thead>
@@ -34,7 +34,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for album in buscarAlbums %}
+                    {% for album in buscarGenero %}
                     <tr>
                         <td>
                             <img src="{{album.caratula.url}}" height="100"> 

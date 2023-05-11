@@ -7,15 +7,15 @@
        <br>{{campo.label_tag}}
        {% if campo.field.widget.input_type == 'file' and campo.value %}
        <br>
-       <img src="{{MEDIA_URL}}/imagenes/{{campo.value}}" width="100">
+       <img src="{{MEDIA_URL}}/{{campo.value}}" width="100">
        {% endif %}
        <br>
-       {{campo.value}}
+       {{campo.value | time:"H:i" }}
        {{campo}}
     </div>
     <div class="col-12 help-text">{{campo.errors}}</div>
     {% endfor %}
     <br>
     <input name="" id="" class="btn btn-outline-primary btn-sm" type="submit" value="Enviar">
-    <a name="" id="" class="btn btn-outline-danger btn-sm" href="{% url 'formato' %}" role="button">Cancelar</a>
+    <a name="" id="" class="btn btn-outline-danger btn-sm" href="{% url 'albums' %}" role="button">Cancelar</a>
   </form>

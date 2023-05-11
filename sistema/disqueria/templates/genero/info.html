@@ -6,7 +6,10 @@
 
 <div class="card">
     <div class="card-header">
-        <a name="" id="" class="btn btn-success" href="{% url 'crearGenero' %}" role="button">Agregar</a>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a name="" id="" class="btn btn-outline-success" href="{% url 'albums' %}" role="button">Atras</a>
+        <a name="" id="" class="btn btn-info" href="{% url 'crearGenero' %}" role="button">Agregar</a>
+    </div>
     </div>
     <div class="card-body">
         <h4 class="card-title">LISTA DE GENEROS</h4>
@@ -25,8 +28,9 @@
                     <tr>
                         <td>{{genero.nombre}}</td>
                         <td>
-                            <a name="" id="" class="btn btn-primary" href="{% url 'editarGenero' genero.id_genero %}"  role="button">Editar</a>
-                            <a name="" id="" class="btn btn-danger" href="{% url 'borrarGenero' genero.id_genero %}" role="button">Borrar</a>
+                            <a name="" id="" class="btn btn-outline-success btn-sm" href="{% url 'buscarGenero' %}?BuscarG={{genero.id_genero}}" role="button">Albums</a>
+                            <a name="" id="" class="btn btn-outline-warning btn-sm" href="{% url 'editarGenero' genero.id_genero %}"  role="button">Editar</a>
+                            <a name="" id="" class="btn btn-outline-danger btn-sm" href="{% url 'borrarGenero' genero.id_genero %}" role="button">Borrar</a>
                         </td>
                     </tr>
                     {% endfor %}

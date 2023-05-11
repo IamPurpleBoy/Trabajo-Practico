@@ -1,0 +1,21 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Crear nuevo Album {% endblock%}
+
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        CREAR UN TEMA
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">Datos del Tema</h4>
+        {% include 'temas/form.html' %}
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div> 
+
+{% endblock%}

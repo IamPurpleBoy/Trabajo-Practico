@@ -1,0 +1,59 @@
+{% extends "paginas/base.html" %}
+
+{% block titulo %} Listado de Temas por Album{% endblock%}
+
+{% block contenido %} 
+
+<div class="card">
+    <div class="card-header">
+        <div class="d-grid gap-2 d-md-flex justify-content-md-end">
+        <a name="" id="" class="btn btn-outline-success" href="{% url 'albums' %}" role="button">Atras</a>
+        <a name="" id="" class="btn btn-info" href="{% url 'crearTema' %}" role="button">Agregar</a>
+        </div>
+    </div>
+    <div class="card-body">
+        <h4 class="card-title">LISTADO DE TEMAS POR ALBUM</h4>
+        <div class="table-responsive">
+            <table class="table table-light">
+                <thead>
+                    <tr>
+                        <th>Titulo</th>
+                        <th>Duracion</th>
+                        <th>Autor</th>
+                        <th>Compositor</th>
+                        <th>Codigo Album</th>
+                        <th>Interprete</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% if temasAlbum %}
+                    {% for tema in temasAlbum %}
+                    <tr>
+                        <td>{{tema.titulo}}</td>
+                        <td>{{tema.duracion|time:"H:i" }}</td>
+                        <td>{{tema.autor}}</td>                    
+                        <td>{{tema.compositor}}</td>
+                        <td>{{tema.cod_album}}</td>
+                        <td>{{tema.id_interprete}}</td>
+                        <td>
+                            <a name="" id="" class="btn btn-outline-warning btn-sm" href="{% url 'editarTema' tema.id_tema %}"  role="button">Editar</a>
+                            <a name="" id="" class="btn btn-outline-danger btn-sm" href="{% url 'borrarTema' tema.id_tema %}" role="button">Borrar</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    {% else %}
+                    <p style="color: red">No hay registro de Temas</p>
+                    {% endif %}
+                    
+                </tbody>
+            </table>
+        </div>
+        
+    </div>
+    <div class="card-footer text-muted">
+        Footer
+    </div>
+</div> 
+
+{% endblock%}

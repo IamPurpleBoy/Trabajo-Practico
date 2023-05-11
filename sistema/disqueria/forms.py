@@ -109,3 +109,31 @@ class GeneroForm(forms.ModelForm):
             'nombre' : forms.TextInput(attrs={'class': 'form-control'}),
             
         }
+
+
+class TemaForm(forms.ModelForm):
+  
+    class Meta:
+        model = Tema
+        
+        fields = [ 
+                        
+            'titulo',    
+            'duracion',
+            'autor',
+            'compositor',
+            'cod_album',
+            'id_interprete',
+        ] 
+
+        
+        widgets = {
+            
+            'titulo' : forms.TextInput(attrs={'class': 'form-control'}),
+            'duracion' : forms.TimeInput(attrs={'class': 'form-control'}),
+            'autor' : forms.TextInput(attrs={'class': 'form-control'}),
+            'compositor': forms.TextInput(attrs={'class': 'form-control'}),
+            'cod_album': forms.Select(attrs={'class': 'form-control'}),
+            'id_interprete': forms.Select(attrs={'class': 'form-control'}),
+        
+        }

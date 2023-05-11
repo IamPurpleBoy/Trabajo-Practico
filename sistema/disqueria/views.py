@@ -1,12 +1,13 @@
 from django.shortcuts import render, redirect
 from django.db.models import Q
 from django.http import HttpResponse
-from .models import Album, Interprete, Formato, Discografica, Genero
+from .models import Album, Interprete, Formato, Discografica, Genero, Tema
 from .forms import AlbumForm
 from .forms import InterpreteForm
 from .forms import FormatoForm
 from .forms import DiscograficaForm
 from .forms import GeneroForm
+from .forms import TemaForm
 
 # Create your views here.
 
@@ -132,7 +133,13 @@ def generos(request):
     genero = Genero.objects.all().order_by('nombre')
     print(genero)
     return render(request,'genero/info.html', {'generos': genero})
-    
+##################################################################################################
+def buscarGenero(request):
+    busqueda = request.GET.get('BuscarG')
+    print(busqueda)
+    generoAlbum = Album.objects.filter(id_genero = busqueda)
+    return render(request,'albums/por-genero.html', {'buscarGenero': generoAlbum})
+##################################################################################################    
 def crearGenero(request):
     formulario= GeneroForm(request.POST or None, request.FILES or None)
     if formulario.is_valid():
@@ -152,3 +159,35 @@ def borrarGenero(request, id_genero):
     genero= Genero.objects.get(id_genero=id_genero)
     genero.delete()
     return redirect('genero')
+
+def temas(request):
+    tema = Tema.objects.all().order_by('cod_album')
+    print(tema)
+    return render(request,'temas/info.html', {'temas': tema})
+
+def temasAlbum(request):
+    busqueda = request.GET.get('Buscar')
+    print(busqueda)
+    temasAlbum = Tema.objects.filter(cod_album = busqueda).order_by('cod_album')
+    return render(request,'temas/por-album.html', {'temasAlbum': temasAlbum})
+
+def crearTema(request):
+    formulario= TemaForm(request.POST or None, request.FILES or None)
+    if formulario.is_valid():
+        formulario.save()
+        return redirect('temas')
+    return render(request,'temas/crear.html', {'formulario': formulario})   
+
+def editarTema(request, id_tema):
+    tema= Tema.objects.get(id_tema=id_tema)
+    formulario= TemaForm(request.POST or None, request.FILES or None, instance=tema)
+    if formulario.is_valid() and request.POST:
+        formulario.save()
+        return redirect('temas')
+    return render(request,'temas/editar.html', {'formulario': formulario})
+
+def borrarTema(request, id_tema):
+    tema = Tema.objects.get(id_tema=id_tema)
+    tema.delete()
+    return redirect('temas')
+

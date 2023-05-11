@@ -4,15 +4,49 @@
 
 
 {% block contenido %}
-<div class="container-fluid bg-info" >
+<div class="container-fluid bg-info rounded-2">
+  <div class="row">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-transparent rounded-3">
+      <div class="container-fluid">
+        <div class="col-10">
+          <a class="navbar-brand" href="#">Disqueria Formosa</a>
+    </nav>
+    {% for album in albums %}
+    <tr>
+      <td>
+        <img src="{{album.caratula.url}}" height="100">
+      </td>
+      <td>{{album.nombre}}</td>
+      <td>{{album.id_interprete}}</td>
+      <td>{{album.fec_lanzamiento}}</td>
+      <td>{{album.id_discografica}}</td>
+      <td>{{album.id_formato}}</td>
+      <td>{{album.id_genero}}</td>
+      <td>{{album.cant_temas}}</td>
+      <td>${{album.precio}}</td>
+      <td>{{album.cantidad}}</td>
+      <td>
+        <div class="d-grid gap-2 mx-auto">
+          <a name="" id="" class="btn btn-outline-success btn-sm"
+            href="{% url 'temasAlbum' %}?Buscar={{album.id_album}}" role="button">Temas</a>
+          <a name="" id="" class="btn btn-outline-warning btn-sm" href="{% url 'editarAlbum' album.id_album %}"
+            role="button">Editar</a>
+          <a name="" id="" class="btn btn-outline-danger btn-sm" href="{% url 'borrarAlbum' album.id_album %}"
+            role="button">Borrar</a>
+        </div>
+      </td>
+    </tr>
+    {% endfor %}
+  </div>
+
   <div class="p-5 mb-4 bg-primary rounded-3">
     <div class="container-fluid py-5">
       <h1 class="display-5 fw-bold text-light">Bienvenidos a Disqueria Formosa</h1>
-      <p class="col-md-8 fs-4 text-light">Los de antes, los de ahora y los de siempre...</p> 
-      <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'buscarAlbum'  %}">  
+      <p class="col-md-8 fs-4 text-light">Los de antes, los de ahora y los de siempre...</p>
+      <form class="form-inline my-2 my-lg-0" method="get" action="{% url 'buscarAlbum'  %}">
         <div class="row">
-          <div class="col-8"><input class="form-control mr-sm-2" type="search" placeholder="Buscar Álbum por su nombre aqui..."
-              aria-label="Buscar" name="Buscar">
+          <div class="col-8"><input class="form-control mr-sm-2" type="search"
+              placeholder="Buscar Álbum por su nombre aqui..." aria-label="Buscar" name="Buscar">
           </div>
           <div class="col-2">
             <button class="btn btn-outline-link my-1 my-sm-0 fw-bold text-light" type="submit">Buscar</button>

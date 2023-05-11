@@ -33,5 +33,13 @@ urlpatterns = [
     path('editar/genero', views.editarGenero, name='editarGenero'),
     path('borrar/genero/<int:id_genero>', views.borrarGenero, name='borrarGenero'),
     path('editar/genero/<int:id_genero>', views.editarGenero, name='editarGenero'),
+    path('albums/por-genero', views.buscarGenero, name='buscarGenero'),
+    path('temas', views.temas, name='temas'),
+    path('temas/por-album', views.temasAlbum, name='temasAlbum'),
+    path('editar/temas', views.editarTema, name='editarTema'),
+    path('borrar/tema/<int:id_tema>', views.borrarTema, name='borrarTema'),
+    path('editar/tema/<int:id_tema>', views.editarTema, name='editarTema'),
+    path('crear/tema',views.crearTema, name='crearTema'),
+
     
 ]+ static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
